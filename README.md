@@ -127,33 +127,31 @@ The first turn gives the option for a move with a cost of only 1, but it strands
 
 ### Part 5a: State Representation
 
-> Document the three components of your search state as a table.
-> Variable names here must match exactly what you use in torchbearer.py.
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Current location | `current_loc` | node (hashable) | The dungeon node the Torchbearer currently occupies |
+| Relics not yet collected | `relics_remaining` | `set` | Set of relic nodes still to be visited |
+| Cost so far | `cost_so_far` | `float` | Total cost burned on the route so far |
 
 ### Part 5b: Data Structure for Visited Relics
 
-> Fill in the table.
-
 | Property | Your answer |
 |---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Data structure chosen | Python `set` |
+| Operation: check if relic already collected | O(1) — `relic not in relics_remaining` |
+| Operation: mark a relic as collected | O(1) — `relics_remaining.remove(relic)` |
+| Operation: unmark a relic  | O(1) — `relics_remaining.add(relic)` |
+| Why this structure fits | All three mutation operations are O(1); `add` makes backtracking trivial without copying the collection |
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
+- **Worst-case number of orders considered:** 
 
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+k! (k factorial),  where k =  |M|.
+- **Why:** 
+
+At the first turn there are `k` moves of next relic, then k − 1, ..., then 1; multiplying gives k!.
 
 ---
 
