@@ -158,30 +158,20 @@ At the first turn there are `k` moves of next relic, then k − 1, ..., then 1; 
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** `best[0]`, the lowest cost found so far.
+- **When it is used:** Before each recursive call and at the base case to decide whether to update.
+- **What it allows the algorithm to skip:** Any branch whose best-case completion can't beat `best[0]`.
 
 ### Part 6b: Lower Bound Estimation
 
-> Three bullets.
-
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** `cost_so_far`, `current_loc`, `relics_remaining`, and the precomputed `dist_table`.
+- **What the lower bound accounts for:** The cheapest possible next relic step plus the cheapest possible exit stretch.
+- **Why it never overestimates:** Both terms use true shortest-path minimums, the real route must cost at least this much.
 
 ### Part 6c: Pruning Correctness
 
-> One to two bullets. Explain why pruning is safe.
+- If the lower bound >= `best[0]`, every real completion from this branch costs at least that much too, so the optimal solution cannot be here.
+- We only prune branches that are provably worse, so the optimal is always fully explored.
 
-- _Your answer here._
 
----
-
-## References
-
-> Bullet list. If none beyond lecture notes, write that.
-
-- _Your references here._
