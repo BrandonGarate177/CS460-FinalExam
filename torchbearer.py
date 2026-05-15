@@ -177,7 +177,17 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """### Why Greedy Fails
+
+- **The failure mode:** Greedy always moves to the nearest unvisited relic, optimizing only the immediate next step without accounting for how that choice affects the cost of all remaining legs.
+- **Counter-example setup:** S→R1=1, S→R2=3; R1→R2=100, R1→T=1; R2→R1=1, R2→T=100. Two relics {R1, R2}, exit T.
+- **What greedy picks:** Starting at S, greedy picks R1 first (cost 1, cheapest option), then is forced to go R1→R2 (cost 100), then R2→T (cost 100). Total = 201.
+- **What optimal picks:** Visit R2 first (S→R2=3), then R2→R1 (cost 1), then R1→T (cost 1). Total = 5.
+- **Why greedy loses:** The locally cheap first step (R1 at cost 1) strands the Torchbearer with expensive remaining legs; the costlier first step (R2 at cost 3) unlocks cheap subsequent legs that greedy never considers.
+
+### What the Algorithm Must Explore
+
+- The algorithm must consider every possible **order** in which the relic chambers are visited, because only comparing complete orderings reveals which sequence minimizes total fuel cost."""
 
 
 # =============================================================================
