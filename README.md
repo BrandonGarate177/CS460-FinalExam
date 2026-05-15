@@ -147,10 +147,9 @@ The first turn gives the option for a move with a cost of only 1, but it strands
 ### Part 5c: Worst-Case Search Space
 
 - **Worst-case number of orders considered:** 
-
 k! (k factorial),  where k =  |M|.
-- **Why:** 
 
+- **Why:** 
 At the first turn there are `k` moves of next relic, then k − 1, ..., then 1; multiplying gives k!.
 
 ---

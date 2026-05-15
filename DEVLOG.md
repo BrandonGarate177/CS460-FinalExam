@@ -50,10 +50,12 @@ part 4 / `explain_search()`, then the meaty parts 5-7 with the actual search + p
 
 ## Entry 4 – [Date]: Post-Implementation Reflection
 
-> Required. Written after your implementation is complete. Describe what you would
-> change or improve given more time.
 
-_Your entry here._
+We have finished implemention, and all 5 tests pass. 
+
+The lower bound i used is pretty loose, it only actually accounts for one more relic steep and one exit leg
+A tighter bound would prune more branches and speed things up on larger inputs. 
+
 
 ---
 
