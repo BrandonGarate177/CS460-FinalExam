@@ -59,18 +59,16 @@ A tighter bound would prune more branches and speed things up on larger inputs.
 
 ---
 
-## Final Entry – [Date]: Time Estimate
-
-> Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
+## Final Entry – [May 14, night]: Time Estimate
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | |
-| Part 2: Precomputation Design | |
-| Part 3: Algorithm Correctness | |
-| Part 4: Search Design | |
-| Part 5: State and Search Space | |
-| Part 6: Pruning | |
-| Part 7: Implementation | |
-| README and DEVLOG writing | |
+| Part 1: Problem Analysis | 0.5 |
+| Part 2: Precomputation Design | 0.75 |
+| Part 3: Algorithm Correctness | 1.0 |
+| Part 4: Search Design | 0.5 |
+| Part 5: State and Search Space | 1.0 |
+| Part 6: Pruning | 0.75 |
+| Part 7: Implementation | 2.0 |
+| README and DEVLOG writing | 1.0 |
 | **Total** | |
