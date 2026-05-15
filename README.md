@@ -90,20 +90,36 @@ A wrong `dist` value would misprice every corridor leg in `dist_table`, so the s
 
 ### Why Greedy Fails
 
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+#### **The failure mode:** 
+- A greedy algorithm will always move to the nearest unvisited relic. It optimizes for the most next step, ignoring any upstream calculations 
+
+#### **Counter-example setup:** 
+
+- S -> R1 = 1, S -> R2 =3;    
+- R1 -> R2 = 100, R1 -> T = 1; R2 -> R1 = 1, R2 -> T = 100.
+
+Two relics {R1  , R2} exit T 
+
+
+#### What greedy picks:
+When we start at `S`, greedy picks R1 first (+1), then it is forced to go R1 -> R2 (+100) then R2 -> T (+100) 
+
+TOTAL = 201 
+
+#### What optimal picks:
+We start at `R2` first S -> R2 (+3). R2 -> R1 (+1), then R1 -> T (+1)
+
+TOTAL = 5
+
+#### Why greedy loses:
+
+The first turn gives the option for a move with a cost of only 1, but it strands our torchbearer to only expensive legs. 
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
 
-- _Your answer here._
+- The algorithm should be able to checl out every possible order, where the relic chambers are visted, because only comparing complete orderings could we know how to minimize fuel costs. 
 
 ---
 
