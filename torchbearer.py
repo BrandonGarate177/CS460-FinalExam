@@ -259,6 +259,10 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
 
     for relic in list(relics_remaining):
         step_cost = dist_table[current_loc].get(relic, float('inf'))
+        if step_cost == float('inf'):
+            continue
+
+        relics_remaining.remove(relic)
         relics_visited_order.append(relic)
 
         _explore(dist_table, relic, relics_remaining, relics_visited_order,
